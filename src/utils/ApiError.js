@@ -3,17 +3,17 @@ class ApiError extends Error {
         statusCode,
         message= "Something went wrong",
         errors =[],
-        statck=""
+        stack=""
     ){
         super(message);
         this.statusCode = statusCode
         this.data = null
         this.errors = errors
         this.message = message
-        this.statck = statck
+        this.stack = stack
         this.success = false;
 
-        if(statck){
+        if(stack){
             this.stack = stack
         }
         else{
@@ -22,4 +22,25 @@ class ApiError extends Error {
     }
 
 }
+
 export {ApiError}
+
+
+
+
+
+
+
+
+
+
+
+// 🔴 Problem Without apiError
+
+// If you don’t use a custom error class:
+
+// You’d have to manually send error responses everywhere.
+
+// Different routes may return errors in different formats.
+
+// Debugging/logging becomes messy.
